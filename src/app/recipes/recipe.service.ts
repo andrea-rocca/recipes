@@ -8,7 +8,7 @@ export class RecipeService {
 
     private recipes: Recipe[] = [
         new Recipe(
-            'A Test Recipe',
+            'A Burger',
             'This is a test',
             'https://images2.minutemediacdn.com/image/upload/c_crop,h_1126,w_2000,x_0,y_181/f_auto,q_auto,w_1100/v1554932288/shape/mentalfloss/12531-istock-637790866.jpg',
             [
@@ -16,9 +16,9 @@ export class RecipeService {
                 new Ingredient('French Fries', 21)
             ]),
         new Recipe(
-            'Another Test Recipe',
+            'A Schnitzel',
             'This is a test',
-            'https://images2.minutemediacdn.com/image/upload/c_crop,h_1126,w_2000,x_0,y_181/f_auto,q_auto,w_1100/v1554932288/shape/mentalfloss/12531-istock-637790866.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Breitenlesau_Krug_Br%C3%A4u_Schnitzel.JPG/1200px-Breitenlesau_Krug_Br%C3%A4u_Schnitzel.JPG',
             [])
     ];
 
@@ -32,5 +32,9 @@ export class RecipeService {
 
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
         this.shoppingListService.addIngredients( ingredients );
+    }
+
+    getRecipeById(index: number) {
+        return this.recipes.slice()[index];
     }
 }
