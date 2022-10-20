@@ -3,13 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RecipesModule } from './recipes/recipes.module';
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipesModule } from './recipes/recipes.module';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { DropDownDirective } from './shared/dropdown.directive';
 import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
@@ -17,6 +15,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AlertComponent } from './shared/alert/alert.component';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
 
 @NgModule({
 	declarations: [
@@ -24,8 +23,6 @@ import { AlertComponent } from './shared/alert/alert.component';
 		AuthComponent,
 		LoadingSpinnerComponent,
 		HeaderComponent,
-		ShoppingListComponent,
-		ShoppingEditComponent,
 		DropDownDirective,
 		AlertComponent,
 		PlaceholderDirective
@@ -36,7 +33,8 @@ import { AlertComponent } from './shared/alert/alert.component';
 		ReactiveFormsModule,
 		AppRoutingModule,
 		HttpClientModule,
-		RecipesModule
+		RecipesModule,
+		ShoppingListModule
 	],
 	providers: [ShoppingListService, RecipeService, {
 		provide: HTTP_INTERCEPTORS,
@@ -48,8 +46,7 @@ import { AlertComponent } from './shared/alert/alert.component';
 	// needed for Angular versions before 9
 	// this is necessary for dynamically created components
 	entryComponents: [
-		AlertComponent,
-		DropDownDirective
+		AlertComponent
 	]
 })
 export class AppModule { }
