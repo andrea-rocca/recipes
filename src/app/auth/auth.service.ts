@@ -4,6 +4,7 @@ import { catchError, tap } from "rxjs/operators";
 import { BehaviorSubject, throwError } from 'rxjs';
 import { User } from "./user.model";
 import { Router } from "@angular/router";
+import { environment } from '../../environments/environment';
 
 export interface AuthResponseData {
     kind: string;
@@ -15,7 +16,7 @@ export interface AuthResponseData {
     registered?: boolean;
 }
 
-const api_key = 'AIzaSyDrHq3CZRR79hA5tHDckPWV2wwT_7PL-VY';
+const api_key = environment.firebaseAPIKey;
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
